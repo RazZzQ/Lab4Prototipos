@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Transform pointA; 
+    public Transform pointB; 
+    public float speed = 3f; 
+
+    private Transform target; 
+
     void Start()
     {
-        
+        target = pointA;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        MoveTowardsTarget();
+    }
+
+    void MoveTowardsTarget()
+    {
+
+        float step = speed * Time.deltaTime; 
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
+        if (Vector3.Distance(transform.position, target.position) < 0.1f)
+        {
+            target = (target == pointA) ? pointB : pointA;
+        }
     }
 }
