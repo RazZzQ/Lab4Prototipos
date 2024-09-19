@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class TimeManager : MonoBehaviour
 {
-    public TextMeshProUGUI timerText; // Arrastra el Text UI aquí en el Inspector
+    public TextMeshProUGUI timerText; 
 
     private float timeElapsed;
 
     private void Start()
     {
-        timeElapsed = 0f; // Inicializa el tiempo transcurrido
+        timeElapsed = 0f; 
     }
 
     private void Update()
     {
-        timeElapsed += Time.deltaTime; // Incrementa el tiempo transcurrido
+        timeElapsed += Time.deltaTime; 
         UpdateTimerText();
     }
 
